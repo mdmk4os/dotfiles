@@ -1,0 +1,17 @@
+#camada wofi - background, bottom, top and overlay
+layer = top
+#set true for make wofi a container wayland - default is false
+#normal_window = true
+allow_markup = true
+allow_images = true
+image_size = 24
+#dimension container
+width = 40%
+#set terminal to run CLI apps
+term = kitty
+#allow hide input for passwd, default is false
+#password = @
+orientation = vertical
+halign = fill
+content_halign = fill
+mode = dmenu
