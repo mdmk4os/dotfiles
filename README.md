@@ -1,8 +1,8 @@
 # Dotfiles sway tiling manager
+
 > [!NOTE]
-> these configuration files and arch installation script are made for my VM
-This repo is used to backup my desktop.
-If u want to clone this repo, u need to install something.
+> these configuration files and arch installation script are made for my VM.
+
 ### Install dependencies
 ```
 pacman -S sway polkit waybar wofi kitty swayidle swaylock mako
