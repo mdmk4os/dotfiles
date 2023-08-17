@@ -1,4 +1,5 @@
 # Dotfiles sway tiling manager
+> [!Note] these configuration files and arch installation script are made for my VM
 This repo is used to backup my desktop.
 If u want to clone this repo, u need to install something.
 ### Install dependencies
@@ -16,5 +17,8 @@ mv dotfiles/* ~/.config/*
 -->
 
 <!-- Install Base 
+                - Formatar e montar partiçoes
+                - instalar o sistema base com literalmente o básico para o computador funcionar e conversar com a internet
+                - Configurações extras e pessoais, futuramente vou ativar escolhas
                 - 
 -->
