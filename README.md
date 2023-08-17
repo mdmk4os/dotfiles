@@ -1,5 +1,5 @@
 # Dotfiles sway tiling manager
-> [!Note] these configuration files and arch installation script are made for my VM
+> [!NOTE] these configuration files and arch installation script are made for my VM
 This repo is used to backup my desktop.
 If u want to clone this repo, u need to install something.
 ### Install dependencies
