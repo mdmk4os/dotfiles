@@ -10,4 +10,11 @@ pacman -S sway polkit waybar wofi kitty swayidle swaylock mako
 git clone https://github.com/mdmk4os/dotfiles.git
 mv dotfiles/* ~/.config/*
 ```
+<!-- Pré- install 
+                - rodar a iso e configurar o acesso ao teclado e internet
+                - formatar e configurar discos, partições LVM
+-->
 
+<!-- Install Base 
+                - 
+-->
