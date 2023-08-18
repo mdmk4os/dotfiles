@@ -6,11 +6,11 @@
 # Pré-install
 > #### Run arch.iso and configure your keyboard, network and reset/format disks
 To enable brazilian keyboard
-```bash
+```shell
 # loadkeys=br-abnt2
 ```
 Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
-```bash
+```shell
 # iwctl station <device> connect <SSID>
 ```
 > [!NOTE]
@@ -32,7 +32,7 @@ After that, we can move on to the assembly process already included in the [inst
 > #### Here we will mount the partitions, configure them and install/configure the base system enough to be able to use it after reboot
 
 For my machine we can just run the install script
-```bash
+```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch-install.sh)"
 ```
 But for those of who are installing it on your machine, let's break down the script into a step-by-step
@@ -46,8 +46,9 @@ But for those of who are installing it on your machine, let's break down the scr
    In case ur partition structure is different, just change the command.
 2. #### Install kernel and app base
    Using the command `pacstrap <path/to/mount> [list of packages]` we will install the base inside our already mounted partition.
+   
    We are also going to generate the fstab file, so that when restarting the machine it will recognize the partitions.
-   ```bash
+   ```shell
    pacstrap -K /mnt base linux-zen linux-zen-headers linux-firmware iproute2 nano dhcpcd iwd man
    genfstab -U /mnt >> /mnt/etc/fstab
    ```
