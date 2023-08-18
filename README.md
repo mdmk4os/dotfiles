@@ -35,7 +35,15 @@ For my machine we can just run the install script
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch-install.sh)"
 ```
+But for those of who are installing it on your machine, let's break down the script into a step-by-step
 
+1. #### Fs and Mount partitions
+   Here we will mount the partitions according to the previous formatting
+   ```
+   mkfs.fat -F32 /dev/sda1 && mkswap /dev/sda2 && mkfs.btrfs -f /dev/sda3
+   mount /dev/sda3 /mnt && swapon /dev/sda2 && mount --mkdir /dev/sda1 /mnt/boot/efi
+   ```
+   In case ur partition structure is different, just change the command.
 <!-- Install Base 
   - Formatar e montar partiçoes
   - instalar o sistema base com literalmente o básico para o computador funcionar e conversar com a internet
