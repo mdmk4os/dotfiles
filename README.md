@@ -15,6 +15,7 @@ Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl stat
 ```
 > [!NOTE]
 > if you're in wired connection: try `systemctl status dhcpcd`
+
 To format the disks, I will use my example VM, using `cfdisk <device>` we can reset:
 dev/sdaX. DISK gpt 40G
           1. `EFI` partition 341M
