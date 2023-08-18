@@ -5,17 +5,21 @@
 
 # Pré-install
 > ### Run arch.iso and configure your keyboard, network and reset/format disks
-
-### To enable brazilian keyboard
+To enable brazilian keyboard
 ```
 # loadkeys=br-abnt2
 ```
-### Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
+Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
 ```
 # iwctl station <device> connect <SSID>
 ```
 > [!NOTE]
 > if you're in wired connection: try `systemctl status dhcpcd`
+To format the disks, I will use my example VM, using `cfdisk <device>` we can reset:
+dev/sdaX. DISK gpt 40G
+          1. `EFI` partition 341M
+          2. `Swap` partition 2G
+          3. `/` partition 37.659GB
 
 <!-- Pré- install 
   - rodar a iso e configurar o acesso ao teclado e internet
