@@ -52,6 +52,28 @@ But for those of who are installing it on your machine, let's break down the scr
    pacstrap -K /mnt base linux-zen linux-zen-headers linux-firmware iproute2 nano dhcpcd iwd man
    genfstab -U /mnt >> /mnt/etc/fstab
    ```
+3. #### Chroot system
+   Now let's configure some personal things, like keyboard, language, hostname and root password
+
+   First, chroot your system
+   ```
+   arch-chroot /mnt
+   ```
+   ```shell
+   ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+   echo LANG=pt_BR.UTF-8 > /etc/locale.conf
+   echo KEYMAP=br-abnt2 > /etc/vconsole.conf
+   echo cobaia > /etc/hostname
+   echo -e "127.0.0.1    localhost\n::1    localhost\n127.0.1.1    cobaia.localdomain    cobaia" >> /etc/hosts
+   passwd
+   ```
+5. #### GRUB Install
+   > [!WARNING] I use the EFI boot system in my VM, if ur configuration is MBR, I suggest you replace it with the MBR boot system installation
+   ```
+   pacman -S grub efibootmgr
+   grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=[UEFI]Grub-arch --recheck
+   grub-mkconfig -o /boot/grub/grub.cfg
+   ```
 <!-- Install Base 
   - Formatar e montar partiçoes
   - instalar o sistema base com literalmente o básico para o computador funcionar e conversar com a internet
