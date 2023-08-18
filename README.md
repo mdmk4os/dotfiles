@@ -37,7 +37,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch
 ```
 But for those of who are installing it on your machine, let's break down the script into a six steps:
 
-[1.Fs and Mount](#Fs and Mount partitions)
+[1.Fs and Mount](#fs-and-mount-partitions)
 
 1. #### Fs and Mount partitions
    Here we will mount the partitions according to the previous formatting
