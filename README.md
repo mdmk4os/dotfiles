@@ -36,12 +36,12 @@ For my machine I can just run the install script
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch-install.sh)"
 ```
 But for those of who are installing it on your machine, let's break down the script into a six steps:
-=
-[1.Fs and Mount](#fs-and-mount-partitions)
-[2.Kernel and Base](#install-kernel-and-app-base)
-[3.Chroot system](#chroot-system)
-[4.Grub install](#grub-install)
-[5.Enable services](#enable-services-for-reboot)
+
+|[1.Fs and Mount](#fs-and-mount-partitions)
+|[2.Kernel and Base](#install-kernel-and-app-base)
+|[3.Chroot system](#chroot-system)
+|[4.Grub install](#grub-install)
+|[5.Enable services](#enable-services-for-reboot)
 
 1. #### Fs and Mount partitions
    Here we will mount the partitions according to the previous formatting
