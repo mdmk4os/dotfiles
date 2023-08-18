@@ -1,7 +1,26 @@
 # Dotfiles sway tiling manager
 
-> [!NOTE]
+> [!IMPORTANT]
 > these configuration files and arch installation script are made for my VM
+
+# Pré-install
+> Run arch.iso and configure your keyboard, network and reset/format disks
+
+### Configure keyboard
+To enable brazilian keyboard
+```
+# loadkeys=br-abnt2
+```
+Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
+> [!NOTE]
+> if you're in wired connection: try `systemctl status dhcpcd`
+```
+# iwctl
+Now let's enter the iwd shell
+[IWD] station <device> connect <SSID>
+Password:
+```
+U can also connected without use iwd shell, just use `iwctl station <device> connect <SSID>`
 
 <!-- Pré- install 
   - rodar a iso e configurar o acesso ao teclado e internet
