@@ -31,11 +31,13 @@ After that, we can move on to the assembly process already included in the [inst
 # Installation 
 > #### Here we will mount the partitions, configure them and install/configure the base system enough to be able to use it after reboot
 
-For my machine we can just run the install script
+For my machine I can just run the install script
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch-install.sh)"
 ```
-But for those of who are installing it on your machine, let's break down the script into a step-by-step
+But for those of who are installing it on your machine, let's break down the script into a six steps:
+
+[1.Fs and Mount](#Fs and Mount partitions)
 
 1. #### Fs and Mount partitions
    Here we will mount the partitions according to the previous formatting
