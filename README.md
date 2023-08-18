@@ -1,7 +1,7 @@
 # Dotfiles sway tiling manager
 
 > [!IMPORTANT]
-> these configuration files and arch installation script are made for my VM
+> These configuration files and arch installation script are made for my VM. But if you want to use it for your installation, just follow the steps
 
 # Pré-install
 > #### Run arch.iso and configure your keyboard, network and reset/format disks
