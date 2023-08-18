@@ -44,6 +44,13 @@ But for those of who are installing it on your machine, let's break down the scr
    mount /dev/sda3 /mnt && swapon /dev/sda2 && mount --mkdir /dev/sda1 /mnt/boot/efi
    ```
    In case ur partition structure is different, just change the command.
+2. #### Install kernel and app base
+   Using the command `pacstrap <path/to/mount> [list of packages]` we will install the base inside our already mounted partition.
+   We are also going to generate the fstab file, so that when restarting the machine it will recognize the partitions.
+   ```bash
+   pacstrap -K /mnt base linux-zen linux-zen-headers linux-firmware iproute2 nano dhcpcd iwd man
+   genfstab -U /mnt >> /mnt/etc/fstab
+   ```
 <!-- Install Base 
   - Formatar e montar partiçoes
   - instalar o sistema base com literalmente o básico para o computador funcionar e conversar com a internet
