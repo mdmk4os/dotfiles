@@ -4,18 +4,18 @@
 > these configuration files and arch installation script are made for my VM
 
 # Pré-install
-> Run arch.iso and configure your keyboard, network and reset/format disks
+> ### Run arch.iso and configure your keyboard, network and reset/format disks
 
-To enable brazilian keyboard
+### To enable brazilian keyboard
 ```
 # loadkeys=br-abnt2
 ```
-Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
-> [!NOTE]
-> if you're in wired connection: try `systemctl status dhcpcd`
+### Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
 ```
 # iwctl station <device> connect <SSID>
 ```
+> [!NOTE]
+> if you're in wired connection: try `systemctl status dhcpcd`
 
 <!-- Pré- install 
   - rodar a iso e configurar o acesso ao teclado e internet
