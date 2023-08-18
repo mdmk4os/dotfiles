@@ -17,12 +17,13 @@ Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl stat
 > if you're in wired connection: try `systemctl status dhcpcd`
 
 To format the disks, I will use my example VM, using `cfdisk <device>` we can reset:
-
+```
 dev/sdaX. DISK gpt 40G
-          . 1 `EFI` partition 341M
-          . 2 `Swap` partition 2G
-          . 3 `/` partition 37.659GB
-
+          sda1. EFI partition 341M
+          sda2. Swap partition 2G
+          sda3. / partition 37.659GB
+```
+After that, we can move on to the assembly process already included in the [script](arch-install.sh)
 <!-- Pré- install 
   - rodar a iso e configurar o acesso ao teclado e internet
   - formatar e configurar discos, partições LVM
