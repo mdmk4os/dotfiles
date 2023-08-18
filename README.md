@@ -4,7 +4,7 @@
 > these configuration files and arch installation script are made for my VM
 
 # Pré-install
-> ### Run arch.iso and configure your keyboard, network and reset/format disks
+> #### Run arch.iso and configure your keyboard, network and reset/format disks
 To enable brazilian keyboard
 ```
 # loadkeys=br-abnt2
@@ -23,12 +23,13 @@ dev/sdaX. DISK gpt 40G
           sda2. Swap partition 2G
           sda3. / partition 37.659GB
 ```
-After that, we can move on to the assembly process already included in the [script](arch-install.sh)
+After that, we can move on to the assembly process already included in the [install script](arch-install.sh)
 <!-- Pré- install 
   - rodar a iso e configurar o acesso ao teclado e internet
   - formatar e configurar discos, partições LVM
 -->
-## [Teste](#teste2)
+# Installation 
+> #### Here we will mount the partitions, configure them and install/configure the base system enough to be able to use it after reboot
 <!-- Install Base 
   - Formatar e montar partiçoes
   - instalar o sistema base com literalmente o básico para o computador funcionar e conversar com a internet
