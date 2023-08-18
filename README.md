@@ -11,7 +11,7 @@ To enable brazilian keyboard
 ```
 Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
 ```shell
-# iwctl station <device> connect <SSID>
+iwctl station <device> connect <SSID>
 ```
 > [!NOTE]
 > if you're in wired connection: try `systemctl status dhcpcd`
@@ -99,7 +99,15 @@ Alright, now we have the base system installed, we can restart and configure the
   - Ativar serviços de rede e alguns extras para o pos reboot
 -->
 # Pós Reboot
-> N
+> #### After the restart, we have a complete system in CLI mode. Being able to connect to the network among other things
+
+U can check your connectivity with `ping -c1 archlinux.org`, in case of error, check if the services we enabled are running with `systemctl status <service>` if running, u can check your connection with your local modem with `iwctl station <device> show | grep -A2 'State'` if connected, you will see something like this
+```shell
+State                 connected                                        
+Connected network     <BSSID>                                     
+IPv4 address          192.168.0.105
+```
+
 <!-- Pós- Reboot
   - Checkar conectividade com a rede e os serviços ativos
   - instalar pacotes necessários para rodar o sistema tilling manager
