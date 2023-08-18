@@ -6,11 +6,11 @@
 # Pré-install
 > #### Run arch.iso and configure your keyboard, network and reset/format disks
 To enable brazilian keyboard
-```
+```bash
 # loadkeys=br-abnt2
 ```
 Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
-```
+```bash
 # iwctl station <device> connect <SSID>
 ```
 > [!NOTE]
@@ -30,6 +30,12 @@ After that, we can move on to the assembly process already included in the [inst
 -->
 # Installation 
 > #### Here we will mount the partitions, configure them and install/configure the base system enough to be able to use it after reboot
+
+For my machine we can just run the install script
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch-install.sh)"
+```
+
 <!-- Install Base 
   - Formatar e montar partiçoes
   - instalar o sistema base com literalmente o básico para o computador funcionar e conversar com a internet
