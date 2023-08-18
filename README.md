@@ -68,11 +68,20 @@ But for those of who are installing it on your machine, let's break down the scr
    passwd
    ```
 5. #### GRUB Install
-   > [!WARNING] I use the EFI boot system in my VM, if ur configuration is MBR, I suggest you replace it with the MBR boot system installation
-   ```
+   > [!WARNING]
+   > I use the EFI boot system in my VM, if ur configuration is MBR, I suggest you replace it with the MBR boot system installation
+   ```shell
    pacman -S grub efibootmgr
    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=[UEFI]Grub-arch --recheck
    grub-mkconfig -o /boot/grub/grub.cfg
+   ```
+6. #### Enable services for reboot
+   While we are in chroot, the system has an internet connection through the parent machine, so let's enable the necessary network services for the internet to work as soon as we restart the machine.
+   ```shell
+   systemctl enable iwd.service
+   systemctl enable dhcpcd.service
+   systemctl enable systemd-networkd.service
+   systemctl enable systemd-resolved.service
    ```
 <!-- Install Base 
   - Formatar e montar partiçoes
