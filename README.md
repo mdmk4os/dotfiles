@@ -7,7 +7,7 @@
 > #### Run arch.iso and configure your keyboard, network and reset/format disks
 To enable brazilian keyboard
 ```shell
-# loadkeys=br-abnt2
+loadkeys=br-abnt2
 ```
 Configure WIFI, arch-iso comes with daemon wireless **iwd**: try `systemctl status iwd`
 ```shell
