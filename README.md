@@ -107,7 +107,17 @@ State                 connected
 Connected network     <BSSID>                                     
 IPv4 address          192.168.0.105
 ```
+But if it shows that it is not connected, just run the command `iwctl station <device> connect <BSSID>`, then it will ask for wifi password
 
+#### Configuring everything automatically
+>[!IMPORTANT]
+> These settings are strictly personal, only do them if you really want a desktop like mine
+
+For install and configure desktop, new user and a few more specific things
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/pos-reboot.sh)"
+```
+[Click here](pos-reboot.sh) to see if the script will be useful for you.
 <!-- Pós- Reboot
   - Checkar conectividade com a rede e os serviços ativos
   - instalar pacotes necessários para rodar o sistema tilling manager
