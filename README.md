@@ -98,7 +98,7 @@ Alright, now we have the base system installed, we can restart and configure the
   - Instalar grub e aqruivos de inicialização
   - Ativar serviços de rede e alguns extras para o pos reboot
 -->
-# Pós Reboot
+# After Reboot
 > #### After the restart, we have a complete system in CLI mode. Being able to connect to the network among other things
 
 U can check your connectivity with `ping -c1 archlinux.org`, in case of error, check if the services we enabled are running with `systemctl status <service>` if running, u can check your connection with your local modem with `iwctl station <device> show | grep -A2 'State'` if connected, you will see something like this
