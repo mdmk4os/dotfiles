@@ -38,6 +38,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch
 But for those of who are installing it on your machine, let's break down the script into a six steps:
 
 [1.Fs and Mount](#fs-and-mount-partitions)
+[2.Kernel and Base](#install-kernel-and-app-base)
+[3.Chroot system](#chroot-system)
+[4.Grub install](#grub-install)
+[5.Enable services](#enable-services-for-reboot)
 
 1. #### Fs and Mount partitions
    Here we will mount the partitions according to the previous formatting
@@ -69,7 +73,7 @@ But for those of who are installing it on your machine, let's break down the scr
    echo -e "127.0.0.1    localhost\n::1    localhost\n127.0.1.1    cobaia.localdomain    cobaia" >> /etc/hosts
    passwd
    ```
-5. #### GRUB Install
+4. #### GRUB Install
    > [!WARNING]
    > I use the EFI boot system in my VM, if ur configuration is MBR, I suggest you replace it with the MBR boot system installation
    ```shell
@@ -77,7 +81,7 @@ But for those of who are installing it on your machine, let's break down the scr
    grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=[UEFI]Grub-arch --recheck
    grub-mkconfig -o /boot/grub/grub.cfg
    ```
-6. #### Enable services for reboot
+5. #### Enable services for reboot
    While we are in chroot, the system has an internet connection through the parent machine, so let's enable the necessary network services for the internet to work as soon as we restart the machine.
    ```shell
    systemctl enable iwd.service
