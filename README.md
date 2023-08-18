@@ -83,6 +83,7 @@ But for those of who are installing it on your machine, let's break down the scr
    systemctl enable systemd-networkd.service
    systemctl enable systemd-resolved.service
    ```
+Alright, now we have the base system installed, we can restart and configure the desktop
 <!-- Install Base 
   - Formatar e montar partiçoes
   - instalar o sistema base com literalmente o básico para o computador funcionar e conversar com a internet
@@ -91,7 +92,8 @@ But for those of who are installing it on your machine, let's break down the scr
   - Instalar grub e aqruivos de inicialização
   - Ativar serviços de rede e alguns extras para o pos reboot
 -->
-## teste2
+# Pós Reboot
+> N
 <!-- Pós- Reboot
   - Checkar conectividade com a rede e os serviços ativos
   - instalar pacotes necessários para rodar o sistema tilling manager
