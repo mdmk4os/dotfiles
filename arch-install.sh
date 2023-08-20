@@ -13,13 +13,17 @@ fi
 
 #mount partitions
 echo -e "\nMaking fs and mount disks...\n"
-mkfs.fat -F32 /dev/sda1 && mkswap /dev/sda2 && mkfs.btrfs -f /dev/sda3
-mount /dev/sda3 /mnt && mount --mkdir /dev/sda1 /mnt/boot/efi && swapon /dev/sda2
+mkfs.fat -F32 /dev/sda1
+mkswap /dev/sda2
+mkfs.btrfs -f /dev/sda3
+mount /dev/sda3 /mnt
+mount --mkdir /dev/sda1 /mnt/boot/efi
+swapon /dev/sda2
 echo -e "\nComplete! Now installing packages we need to start SO\n"
 
 #install SO base and configure to start with partitions
 echo -e "Packages:[ base, linux-zen, linux-zen-headers, linux-firmware, iproute2, nano, dhcpcd, iwd, man ]"
-pacstrap -K /mnt base linux-zen linux-zen-headers linux-firmware iproute2 nano dhcpcd iwd man
+pacstrap -K /mnt --needed base base-devel linux-zen linux-zen-headers linux-firmware iproute2 nano dhcpcd iwd man
 genfstab -U /mnt >> /mnt/etc/fstab
 
 echo -e "\nChroot system:\n"
@@ -46,6 +50,6 @@ systemctl enable dhcpcd.service
 systemctl enable systemd-networkd.service
 systemctl enable systemd-resolved.service
 
-echo -e "bash ~/pos-reboot.sh" > ~/.bash_profile
+echo -e "bash ~/pos-reboot.sh" >  /root/.bash_profile
 
 echo -e "\nComplete!! Now we can reboot in your new system\n"
