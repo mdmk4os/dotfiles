@@ -13,7 +13,7 @@ fi
 
 #mount partitions
 echo -e "\nMaking fs and mount disks...\n"
-mkfs.fat -F32 /dev/sda1 && mkswap /dev/sda2 && mkfs.btrfs /dev/sda3
+mkfs.fat -F32 /dev/sda1 && mkswap /dev/sda2 && mkfs.btrfs -f /dev/sda3
 mount /dev/sda3 /mnt && mount --mkdir /dev/sda1 /mnt/boot/efi && swapon /dev/sda2
 echo -e "\nComplete! Now installing packages we need to start SO\n"
 
