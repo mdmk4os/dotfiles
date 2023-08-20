@@ -15,6 +15,7 @@ iwctl station <device> connect <SSID>
 ```
 > [!NOTE]
 > if you're in wired connection: try `systemctl status dhcpcd`
+> to check your connection `ping -c1 archlinux.org`
 
 To format the disks, I will use my example VM, using `cfdisk <device>` we can reset:
 ```
