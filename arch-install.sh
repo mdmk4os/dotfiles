@@ -26,30 +26,32 @@ echo -e "Packages:[ base, linux-zen, linux-zen-headers, linux-firmware, iproute2
 pacstrap -K /mnt --needed base base-devel linux-zen linux-zen-headers linux-firmware iproute2 nano dhcpcd iwd man
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo -e "\nChroot system:\n"
-arch-chroot /mnt
+echo -e "\nPreparing the system to configure..."
 
-echo -e "\nConfigure system:\n"
-ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-echo LANG=pt_BR.UTF-8 > /etc/locale.conf
-echo KEYMAP=br-abnt2 > /etc/vconsole.conf
-echo cobaia > /etc/hostname
-echo -e "127.0.0.1    localhost\n::1    localhost\n127.0.1.1    cobaia.localdomain    cobaia" >> /etc/hosts
+echo "echo -e '\nConfigure system:\n'" >> /mnt/root/configure.sh
+echo "ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime" >> /mnt/root/configure.sh
+echo "echo LANG=pt_BR.UTF-8 > /etc/locale.conf" >> /mnt/root/configure.sh
+echo "echo KEYMAP=br-abnt2 > /etc/vconsole.conf" >> /mnt/root/configure.sh
+echo "echo cobaia > /etc/hostname" >> /mnt/root/configure.sh
+echo "echo -e "127.0.0.1    localhost\n::1    localhost\n127.0.1.1    cobaia.localdomain    cobaia" >> /etc/hosts" >> /mnt/root/configure.sh
 
-echo -e "\nSet password of root:\n"
-passwd
+echo "echo -e '\nSet password of root:\n'" >> /mnt/root/configure.sh
+echo "passwd" >> /mnt/root/configure.sh
 
-echo -e "\nNow, making uefi grub!\n"
-pacman -S grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=[UEFI]Grub-arch --recheck
-grub-mkconfig -o /boot/grub/grub.cfg
+echo "echo -e '\nNow, making uefi grub!\n'" >> /mnt/root/configure.sh
+echo "pacman -S grub efibootmgr" >> /mnt/root/configure.sh
+echo "grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=[UEFI]Grub-arch --recheck" >> /mnt/root/configure.sh
+echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/root/configure.sh
 
-echo -e "\nBefore reboot, we enable services for use network after reboot\n"
-systemctl enable iwd.service
-systemctl enable dhcpcd.service
-systemctl enable systemd-networkd.service
-systemctl enable systemd-resolved.service
+echo "echo -e '\nBefore reboot, we enable services for use network after reboot\n'" >> /mnt/root/configure.sh
+echo "systemctl enable iwd.service" >> /mnt/root/configure.sh
+echo "systemctl enable dhcpcd.service" >> /mnt/root/configure.sh
+echo "systemctl enable systemd-networkd.service" >> /mnt/root/configure.sh
+echo "systemctl enable systemd-resolved.service" >> /mnt/root/configure.sh
 
-echo -e "bash ~/pos-reboot.sh" >  /root/.bash_profile
+echo "echo -e 'bash ~/pos-reboot.sh' >  /root/.bash_profile" >> /mnt/root/configure.sh
 
-echo -e "\nComplete!! Now we can reboot in your new system\n"
+echo "echo -e '\nComplete!! Now we can reboot in your new system\n'" >> /mnt/root/configure.sh
+
+echo -e "\nComplete.\n\nConfiguring the system!!\n"
+arch-chroot /mnt bash /root/configure.sh
