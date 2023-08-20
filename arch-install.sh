@@ -49,7 +49,7 @@ echo "systemctl enable dhcpcd.service" >> /mnt/root/configure.sh
 echo "systemctl enable systemd-networkd.service" >> /mnt/root/configure.sh
 echo "systemctl enable systemd-resolved.service" >> /mnt/root/configure.sh
 
-echo "echo -e 'bash ~/pos-reboot.sh' >  /root/.bash_profile" >> /mnt/root/configure.sh
+echo "echo -e 'sh -c \"$(curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/arch-install.sh)\"' >  /root/.bash_profile" >> /mnt/root/configure.sh
 
 echo "echo -e '\nComplete!! Now we can reboot in your new system\n'" >> /mnt/root/configure.sh
 
