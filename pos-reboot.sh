@@ -12,11 +12,11 @@ fi
 
 #making new user and configure your desktop
 echo -e "\nConfiguring your user:\n"
-pacman -S sudo sway polkit swayidle swaylock waybar wofi git pulseaudio pulseaudio-alsa alsa-utils light mako chromium thunar
+pacman -S --needed sudo sway polkit swayidle swaylock waybar wofi git pulseaudio pulseaudio-alsa alsa-utils light mako chromium thunar
 #sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #Configuring user and sudo
-useradd -m -G wheel,power,audio,storage,video -g k90s
+useradd -m -G wheel,power,audio,storage,video -U k90s
 sed -i '/s/# %wheel ALL(ALL:ALL) ALL/ %wheel ALL(ALL:ALL) ALL/' /etc/passwd
 
 echo -e "\nConfiguring your desktop\n"
