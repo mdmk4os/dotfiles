@@ -36,7 +36,7 @@ echo "echo cobaia > /etc/hostname" >> /mnt/root/configure.sh
 echo "echo -e "127.0.0.1    localhost\n::1    localhost\n127.0.1.1    cobaia.localdomain    cobaia" >> /etc/hosts" >> /mnt/root/configure.sh
 
 echo "echo -e '\nSet password of root:\n'" >> /mnt/root/configure.sh
-echo "passwd" >> /mnt/root/configure.sh
+echo "passwd root" >> /mnt/root/configure.sh
 
 echo "echo -e '\nNow, making uefi grub!\n'" >> /mnt/root/configure.sh
 echo "pacman -S grub efibootmgr" >> /mnt/root/configure.sh
