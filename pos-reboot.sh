@@ -17,7 +17,7 @@ pacman -S --needed sudo sway polkit swayidle swaylock waybar wofi git pulseaudio
 
 #Configuring user and sudo
 useradd -m -G wheel,power,audio,storage,video -U k90s
-sed -i '/s/# %wheel ALL(ALL:ALL) ALL/ %wheel ALL(ALL:ALL) ALL/' /etc/passwd
+sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 echo -e "\nConfiguring your desktop\n"
 su k90s
