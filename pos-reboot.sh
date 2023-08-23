@@ -6,7 +6,9 @@ echo -e "Checking connection...\n"
 if [[ $(ping -c1 archlinux.org) ]]; then
     echo -e "Connection OK!\n"
 else
-    echo -e "Not working! Check your connection and run this again\n"
+    #echo -e "Not working! Check your connection and run this again\n"
+    echo -e "Trying connect the last connection"
+    iwctl station wlan0 connect luwifi
     exit
 fi
 
