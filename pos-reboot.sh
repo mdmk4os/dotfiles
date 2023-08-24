@@ -25,7 +25,7 @@ echo -e "\nConfiguring your user:\n"
 ####INSTALL: desktop; tools like panel, terminal, menu, browser and file-explorer; modules of audio and brightness; and fonts
 #this pac use light and mako
 #PACKAGES="sudo sway polkit swayidle swaylock waybar wofi git pulseaudio pulseaudio-alsa alsa-utils light mako chromium thunar"
-PACKAGES="sway polkit swaybg swayidle swaylock waybar wofi kitty chromium thunar git pulseaudio pulseaudio-alsa alsa-utils brigthnessctl nerd-fonts ttf-font-awesome"
+PACKAGES="sway polkit swaybg swayidle swaylock waybar wofi kitty chromium thunar git pulseaudio pulseaudio-alsa alsa-utils brightnessctl nerd-fonts ttf-font-awesome"
 pacman -S --needed $PACKAGES
 
 #ohmyzsh - after make other adjusts
