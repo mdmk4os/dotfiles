@@ -55,7 +55,7 @@ echo "systemctl enable systemd-resolved.service" >> /mnt/root/configure.sh
 
 echo "echo -e '\nLast tweaks before restarting\n'" >> /mnt/root/configure.sh
 echo "curl -fsSL https://raw.githubusercontent.com/mdmk4os/dotfiles/main/pos-reboot.sh >> /root/pos-reboot.sh" >> /mnt/root/configure.sh
-echo "echo -e 'bash /root/pos-reboot.sh' > /root/.bash_profile" >> /mnt/root/configure.sh
+echo "echo -e 'sh -c \"\$(cat /root/pos-reboot.sh)\"' > /root/.bash_profile" >> /mnt/root/configure.sh
 
 echo "echo -e '\nComplete!! Now we can reboot in your new system\n'" >> /mnt/root/configure.sh
 
