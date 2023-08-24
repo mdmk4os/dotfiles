@@ -35,6 +35,7 @@ USERNAME="k90s"
 USERHOME="/home/$USERNAME"
 useradd -m -G wheel,power,audio,storage,video -U $USERNAME
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+passwd $USERNAME
 
 #configuring desktop with dotfiles and adjusts
 echo "cd $USERHOME" >> $USERHOME/conf-desk.sh
