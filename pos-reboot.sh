@@ -9,7 +9,6 @@ else
     #echo -e "Not working! Check your connection and run this again\n"
     echo -e "Trying connect the last connection"
     iwctl station wlan0 connect luwifi
-    exit
 fi
 
 <<POSREBOOT
@@ -33,7 +32,7 @@ pacman -S --needed $PACKAGES
 
 #Configuring user and sudo
 USERNAME="k90s"
-$USERHOME="/home/$USERNAME"
+USERHOME="/home/$USERNAME"
 useradd -m -G wheel,power,audio,storage,video -U $USERNAME
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
@@ -51,7 +50,7 @@ su k90s -c bash $USERHOME/conf-desk.sh
 
 echo -e "\nSetting to start sway on login.\n"
 mv ~/.bash_profile ~/.bash_profile.bkp
-echo -e "if [[ -z \$DISPLAY ]] && [[ $(tty) = /dev/tty1 ]];then\n    XKB_DEFAULT_LAYOUT=br exec sway\nfi" > $USERNAME/.bash_profile
+echo -e "if [[ -z \$DISPLAY ]] && [[ $(tty) = /dev/tty1 ]];then\n    XKB_DEFAULT_LAYOUT=br exec sway\nfi" > $USERHOME/.bash_profile
 
 echo -e "\nRemoving temp files\n"
 rm -rf $USERHOME/dotfiles
