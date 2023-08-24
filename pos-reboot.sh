@@ -47,7 +47,7 @@ echo "echo -e '\nThis is ur new setup\n'" >> $USERHOME/conf-desk.sh
 echo "ls $USERHOME/.config/" >> $USERHOME/conf-desk.sh
 
 echo -e "\nConfiguring your desktop\n"
-su k90s -c bash $USERHOME/conf-desk.sh
+su k90s -c sh -c "$($USERHOME/conf-desk.sh)"
 
 echo -e "\nSetting to start sway on login.\n"
 mv $USERHOME/.bash_profile $USERHOME/.bash_profile.bkp
