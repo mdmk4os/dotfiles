@@ -26,14 +26,17 @@ echo -e "Packages:[ base, linux-zen, linux-zen-headers, linux-firmware, iproute2
 pacstrap -K /mnt --needed base base-devel linux-zen linux-zen-headers linux-firmware iproute2 nano dhcpcd iwd man
 genfstab -U /mnt >> /mnt/etc/fstab
 
-echo -e "\nPreparing the system to configure..."
+echo -e "\nWait..."
 
 echo "echo -e '\nConfigure system:\n'" >> /mnt/root/configure.sh
 echo "ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime" >> /mnt/root/configure.sh
 echo "echo LANG=pt_BR.UTF-8 > /etc/locale.conf" >> /mnt/root/configure.sh
 echo "echo KEYMAP=br-abnt2 > /etc/vconsole.conf" >> /mnt/root/configure.sh
+echo "sed -i 's/#pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen" >> /mnt/root/configure.sh
+echo "sed -i 's/#pt_BR ISO-8859-1/pt_BR ISO-8859-1/' /etc/locale.gen" >> /mnt/root/configure.sh
+echo "locale-gen" >> /mnt/root/configure.sh
 echo "echo cobaia > /etc/hostname" >> /mnt/root/configure.sh
-echo "echo -e "127.0.0.1    localhost\n::1    localhost\n127.0.1.1    cobaia.localdomain    cobaia" >> /etc/hosts" >> /mnt/root/configure.sh
+echo "echo -e '127.0.0.1    localhost\n::1    localhost\n127.0.1.1    cobaia.localdomain    cobaia' >> /etc/hosts" >> /mnt/root/configure.sh
 
 echo "echo -e '\nSet password of root:\n'" >> /mnt/root/configure.sh
 echo "passwd root" >> /mnt/root/configure.sh
