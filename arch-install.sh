@@ -44,7 +44,7 @@ echo "passwd root" >> /mnt/root/configure.sh
 
 echo "echo -e '\nNow, making uefi grub!\n'" >> /mnt/root/configure.sh
 echo "pacman -S grub efibootmgr" >> /mnt/root/configure.sh
-echo "grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=UEFI:Grub-arch --recheck" >> /mnt/root/configure.sh
+echo "grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Auto-Arch --recheck" >> /mnt/root/configure.sh
 echo "grub-mkconfig -o /boot/grub/grub.cfg" >> /mnt/root/configure.sh
 
 echo "echo -e '\nBefore reboot, we enable services for use network after reboot\n'" >> /mnt/root/configure.sh
