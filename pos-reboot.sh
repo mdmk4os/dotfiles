@@ -37,19 +37,19 @@ useradd -m -G wheel,power,audio,storage,video -U $USERNAME
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 #configuring desktop with dotfiles and adjusts
-echo "cd ~" >> $USERHOME/conf-desk.sh
+echo "cd $USERHOME" >> $USERHOME/conf-desk.sh
 echo "git clone https://github.com/mdmk4os/dotfiles.git" >> $USERHOME/conf-desk.sh
-echo "mkdir -p ~/.config/" >> $USERHOME/conf-desk.sh
+echo "mkdir -p $USERHOME/.config/" >> $USERHOME/conf-desk.sh
 #if u want it to replace, remove the -n
-echo "mv -n ~/dotfiles/.config/* ~/.config/" >> $USERHOME/conf-desk.sh
+echo "mv -n $USERHOME/dotfiles/.config/* $USERHOME/.config/" >> $USERHOME/conf-desk.sh
 echo "echo -e '\nThis is ur new setup\n'" >> $USERHOME/conf-desk.sh
-echo "ls ~/.config/" >> $USERHOME/conf-desk.sh
+echo "ls $USERHOME/.config/" >> $USERHOME/conf-desk.sh
 
 echo -e "\nConfiguring your desktop\n"
 su k90s -c bash $USERHOME/conf-desk.sh
 
 echo -e "\nSetting to start sway on login.\n"
-mv ~/.bash_profile ~/.bash_profile.bkp
+mv $USERHOME/.bash_profile $USERHOME/.bash_profile.bkp
 echo -e "if [[ -z \$DISPLAY ]] && [[ $(tty) = /dev/tty1 ]];then\n    XKB_DEFAULT_LAYOUT=br exec sway\nfi" > $USERHOME/.bash_profile
 
 echo -e "\nRemoving temp files\n"
