@@ -3,3 +3,8 @@ env = XDG_SESSION_TYPE,wayland
 env = GBM_BACKEND,nvidia-drm
 env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = WLR_NO_HARDWARE_CURSORS,1
+
+nova linha /etc/modprobe.d/nvidia.conf
+options nvidia-drm modeset=1
+
+paru -S qt5-wayland qt5ct libva nvidia-vaapi-driver-git --needed
